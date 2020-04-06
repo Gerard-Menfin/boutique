@@ -1,0 +1,16 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import '~bootstrap/scss/bootstrap';
+
+
+body {
+    background-color: lightgray;
+}
+
+// yarn encore dev 
+// yarn encore dev --watch
+
+.img-vignette{
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+}

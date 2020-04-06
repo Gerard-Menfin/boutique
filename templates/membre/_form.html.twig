@@ -1,0 +1,27 @@
+{# 
+    {{form(form)}} # affiche le formulaire
+
+    {{ form_start(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }} 
+    # affiche le button et ensuite tous les champs du formulaire
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    # affiche tous les champs du formulaire et ensuite le button
+
+    {{ form_start(form) }}
+        {{ form_widget(form.email) }}
+        {{ form_widget(form.nom) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    # affiche d'abord le champ email, ensuite nom, ensuite le button, et enfin tous les autres champs du formulaire et 
+
+#}
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

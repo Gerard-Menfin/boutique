@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>{{ produit.titre|upper }}</h1>
+
+    <form method="get" action="{{ path("ajouter_panier", { id: produit.id }) }}">
+        <input name="qte" type="number">
+        <button class="btn btn-info">
+            <i class="fa fa-cart-arrow-down"></i>
+        </button>
+    </form>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Reference</th>
+                <td>{{ produit.reference }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ produit.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ produit.couleur }}</td>
+            </tr>
+            <tr>
+                <th>Public</th>
+                <td>{{ produit.public }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ asset("images/") ~ produit.photo }}" class="w-25"></td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prix }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ produit.stock }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ produit.taille }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('home') }}">Accueil</a>
+
+{% endblock %}

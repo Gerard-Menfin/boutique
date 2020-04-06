@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <h1>Mon Profil</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>***</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ app.user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ app.user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ app.user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Civilité</th>
+                <td>{{ app.user.civilite }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ app.user.ville }}</td>
+            </tr>
+            <tr>
+                <th>Code Postal</th>
+                <td>{{ app.user.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ app.user.adresse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <h2>Commandes <span>Nb de commandes : {{ app.user.commandes|length }}</span></h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </thead>
+            {% for commande in app.user.commandes %}
+                <tr>
+                    <td>{{ commande.dateEnregistrement|date("d/m/Y") }}</td>
+                    <td>{{ commande.montant }}</td>
+                    <td>{{ commande.etat }}</td>
+                    <td><a href="{{ path('commande_detail', {'id': commande.id}) }}"><i class="fa fa-book"></i></a>  </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <a href="{{ path('profil_modifier') }}">Modifier</a>
+
+{% endblock %}
